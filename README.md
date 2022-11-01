@@ -6,7 +6,7 @@ Proyecto de ingenieria de software
  
 `DATABASES = {  
     'default': {  
-        'ENGINE': 'django.db.backends.mysql',  
+        'ENGINE': 'django.db.backends.mysql',  \ 
         'NAME': 'restaurante_db', -> nombre de la base de datos  
         'USER': '[nombre de usuario en msql]',  
         'PASSWORD': '[contraseña del usuario msql]',  
