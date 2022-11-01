@@ -3,10 +3,9 @@ Proyecto de ingenieria de software
 ### Coneccion con mysql
  -> `wero\settings.py`  
  
- 
-`DATABASES = {  
+DATABASES = {  
     'default': {  
-        'ENGINE': 'django.db.backends.mysql',  \ 
+        'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'restaurante_db', -> nombre de la base de datos  
         'USER': '[nombre de usuario en msql]',  
         'PASSWORD': '[contraseña del usuario msql]',  
@@ -16,4 +15,4 @@ Proyecto de ingenieria de software
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
         }  
     }  
-}`
+}
