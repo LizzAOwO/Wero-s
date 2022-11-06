@@ -2,7 +2,7 @@
 Proyecto de ingenieria de software
 ### Coneccion con mysql
  -> `wero\settings.py`  
- 
+  
 DATABASES = {  
     &emsp;'default': {  
        &emsp;&emsp; 'ENGINE': 'django.db.backends.mysql',  
