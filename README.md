@@ -4,20 +4,6 @@ Proyecto de ingenieria de software
  -> `wero\settings.py`  
  
 DATABASES = {  
-<<<<<<< HEAD
-    'default': {  
-        'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'restaurante_db', -> nombre de la base de datos  
-        'USER': '[nombre de usuario en msql]',  
-        'PASSWORD': '[contraseña del usuario msql]',  
-        'HOST': '127.0.0.1',   
-        'PORT': '3306',  
-        'OPTIONS':{  
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
-        }  
-    }  
-}
-=======
     &emsp;'default': {  
        &emsp;&emsp; 'ENGINE': 'django.db.backends.mysql',  
        &emsp;&emsp; 'NAME': 'restaurante_db', -> nombre de la base de datos  
@@ -30,4 +16,3 @@ DATABASES = {
        &emsp;&emsp; }  
    &emsp;}  
 }
->>>>>>> e3860488ffe829ac54a3c74d00efc390b2cd4f5a
