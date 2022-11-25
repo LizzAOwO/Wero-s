@@ -23,7 +23,7 @@
         <!--FontWesome-->
         <script src="https://kit.fontawesome.com/e8f8d6036e.js" crossorigin="anonymous"></script>
     </head>
-    {{data | json_script:"mydata"}}
+    {{data | json_script:"comidas"}}
     <body>
         <!--MARCO DE MAIN-->
         <div id="layout-wrapper">
@@ -73,55 +73,8 @@
                             <!--Sección de favoritos-->
                             <section id="Favoritos">
                                 <div class="justify-content-evenly container mt-3" id="contenedorFav">  
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src="./static/imagenes/taco bisteck.jpg"> 
-                                            <label id="producto">Taco Bisteck</label>
-                                            <label id="precioProducto">$15</label>
-                                            <button type="button" class="btn btn-success">Agregar</button>
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="./static/imagenes/Shot-product-mexico_guía-Coca-Cola-sabor-original.png"> 
-                                            <label id="producto">Coca-Cola</label>
-                                            <label id="precioProducto">$15</label>
-                                            <button type="button" class="btn btn-success">Agregar</button>
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="./static/imagenes/Guacamole-con-totopos.jpg"> 
-                                            <label id="producto">guacamole</label>
-                                            <label id="precioProducto">$25</label>
-                                            <button type="button" class="btn btn-success">Agregar</button>
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="./static/imagenes/burritos_mexicanos_de_carne_picada_55349_orig.jpg"> 
-                                            <label id="producto">Burrito</label>
-                                            <label id="precioProducto">$30</label>
-                                            <button type="button" class="btn btn-success">Agregar</button>
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="./static/imagenes/36562.jpg"> 
-                                            <label id="producto">Horchata</label>
-                                            <label id="precioProducto">$20</label>
-                                            <button type="button" class="btn btn-success">Agregar</button>
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="./static/imagenes/taco bisteck.jpg"> 
-                                            <label id="producto">Taco Bisteck</label>
-                                            <label id="precioProducto">$15</label>
-                                            <button type="button" class="btn btn-success">Agregar</button>
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="./static/imagenes/taco bisteck.jpg"> 
-                                            <label id="producto">Taco Bisteck</label>
-                                            <label id="precioProducto">$15</label>
-                                            <button type="button" class="btn btn-success">Agregar</button>
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="./static/imagenes/taco bisteck.jpg"> 
-                                            <label id="producto">Taco Bisteck</label>
-                                            <label id="precioProducto">$15</label>
-                                            <button type="button" class="btn btn-success">Agregar</button>
-                                        </div>
+                                    <div class="row" id="favoritos-div">
+                                        
                                     </div>
                                 </div>
                             </section>
@@ -144,6 +97,14 @@
 
             </div><!--CONTENIDO MAIN-->
         </div> <!--MARCO MAIN-->
+        <template id="template">
+            <div class="col-3">
+                <img src="./static/imagenes/logo-tacos.png"> 
+                <label class="producto">Taco Bisteck</label>
+                <label class="precioProducto">$15</label>
+                <button type="button" class="btn btn-success">Agregar</button>
+            </div>
+        </template>
         <script src="./static/js/index.js"></script>
     </body>
 <html>
