@@ -7,4 +7,7 @@ from App.models import Alimento
 # Create your views here.
 def home(request):
     data = serializers.serialize("json", list(Alimento.objects.all()))
-    return render(request,"index.html",{"data":data})
+    return render(request,"index.html", {"data":data})
+
+def carrito(request):
+    return render(request,"carrito.html")

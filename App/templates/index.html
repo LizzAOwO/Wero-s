@@ -1,21 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-{{ data | json_script:"mydata" }}
+<!DOCTYPE html>     <!--Define que se usara html 5-->
+<html lang="es">    <!--Define el lunguaje español-->
+    <head>          <!--Cabecera-->
+        <meta chaset="utf-8"/>              <!--codificacion de caracteres-->
+        <title> Tacos Wero </title>     <!--titulo de la pestaña del navegador--> 
+        <meta name="description" content="Es punto de venta para un negocio de tacos"/> <!--describe el programa para tener una mejor busqueda en internet-->
+        <meta name="author" content="Leticia Vargas"/>                                              <!--describe el nombre del autor (puede ser nombre de la empresa)-->
+        <!-- app logo navegador-->
+        <link rel="shortcut icon" href="./static/imagenes/logo-tacos.png">
+        <!--Compatile con formatos de tamaño-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />       
+        
+        <!-- Enlace de Estilos -->
+        <link rel="stylesheet" href="./static/css/estilos.css">                    
+        
+        <!-- enlaza el archivo css de estilos-->
+        <!--link href="css/all.min.css" rel="stylesheet"-->
+
+    
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        
+        <!--FontWesome-->
+        <script src="https://kit.fontawesome.com/e8f8d6036e.js" crossorigin="anonymous"></script>
+    </head>
+    {{data | json_script:"mydata"}}
+    <body>
+        <!--MARCO DE MAIN-->
+        <div id="layout-wrapper">
+            <!--CONTENIDO MAIN-->
+             <div class="main-content">
+                <!--HEADER BARRA DE NAVEGACIÓN-->
+                <header>
+                    <!--barra de navegación-->
+                    <div class="topnav logo-nav-container">
+                        <!--LOGO-->  
+                        <div class="logo"> 
+                            <img src="./static/imagenes/logo-tacos.png" width="200" height="90" />
+                        </div>
+                        <!--contenido de barra de navegación principal-->
+                        <nav class="navbar">   <!--navegas en diferetes paginas(pestañas)-->
+                            <!--barra de buscador-->
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2 col-md" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-light" type="submit"><i class="fa-solid fa-magnifying-glass " id="iBuscador"></i></button>
+                            </form>
+                            <!--Carrito de compra--> 
+                            <div  id="carrito">
+                                <a href="./carrito"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
+                            </div>
+                        </nav> 
+                    </div>  
+                </header>
 
 
-<body>
-    <h1>{{data}}</h1>
-    <script>
-        const dads = document.querySelector('h1')
-        const mydata = JSON.parse(JSON.parse(document.getElementById('mydata').textContent))    //por algun motivo necesita doble JSON.parse, el primero parece
-        console.log(mydata)                                                                     //que limpia la entrada y el segundo lo convierte en json (?)
-        dads.textContent = mydata[0].fields.alim_nombre
-    </script>
-</body>
-</html>
+                <div class="row">
+                    <div class="col-3">
+                        <div id="list-example" class="list-group">
+                            <!--Favoritos-->
+                            <a class="list-group-item list-group-item-action" href="#Favoritos"><i class="fa-solid fa-star"></i>  Favoritos</a>
+                            <!--Comida-->
+                            <a class="list-group-item list-group-item-action"href="#Comida"><i class="fa-solid fa-utensils"></i>  Comida</a>
+                            <!--Bebidas-->
+                            <a class="list-group-item list-group-item-action" href="#Bebidas" ><i class="fa-solid fa-bottle-water"></i>  Bebidas</a>
+                            <!--Extras-->
+                            <a class="list-group-item list-group-item-action"href="#Extras" ><i class="fa-solid fa-plus"></i>  Extras</a>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-9" id="menuSecciones">
+                        <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                            <!--Sección de favoritos-->
+                            <section id="Favoritos">
+                                <div class="justify-content-evenly container mt-3" id="contenedorFav">  
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <img src="./static/imagenes/taco bisteck.jpg"> 
+                                            <label id="producto">Taco Bisteck</label>
+                                            <label id="precioProducto">$15</label>
+                                            <button type="button" class="btn btn-success">Agregar</button>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="./static/imagenes/Shot-product-mexico_guía-Coca-Cola-sabor-original.png"> 
+                                            <label id="producto">Coca-Cola</label>
+                                            <label id="precioProducto">$15</label>
+                                            <button type="button" class="btn btn-success">Agregar</button>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="./static/imagenes/Guacamole-con-totopos.jpg"> 
+                                            <label id="producto">guacamole</label>
+                                            <label id="precioProducto">$25</label>
+                                            <button type="button" class="btn btn-success">Agregar</button>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="./static/imagenes/burritos_mexicanos_de_carne_picada_55349_orig.jpg"> 
+                                            <label id="producto">Burrito</label>
+                                            <label id="precioProducto">$30</label>
+                                            <button type="button" class="btn btn-success">Agregar</button>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="./static/imagenes/36562.jpg"> 
+                                            <label id="producto">Horchata</label>
+                                            <label id="precioProducto">$20</label>
+                                            <button type="button" class="btn btn-success">Agregar</button>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="./static/imagenes/taco bisteck.jpg"> 
+                                            <label id="producto">Taco Bisteck</label>
+                                            <label id="precioProducto">$15</label>
+                                            <button type="button" class="btn btn-success">Agregar</button>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="./static/imagenes/taco bisteck.jpg"> 
+                                            <label id="producto">Taco Bisteck</label>
+                                            <label id="precioProducto">$15</label>
+                                            <button type="button" class="btn btn-success">Agregar</button>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="./static/imagenes/taco bisteck.jpg"> 
+                                            <label id="producto">Taco Bisteck</label>
+                                            <label id="precioProducto">$15</label>
+                                            <button type="button" class="btn btn-success">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--sección Comida-->
+                            <section id="Comida">
+                                <h1 hidden> COMIDA </h1>
+
+                            </section>
+                            <!--sección Bebidas-->
+                            <section id="Bebidas">
+                                <h1 hidden> BEBIDAS</h1>
+                            </section>
+                            <!--Extras-->
+                            <section id="Extras">
+                                <h1 hidden> EXTRAS</h1>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!--CONTENIDO MAIN-->
+        </div> <!--MARCO MAIN-->
+        <script src="./static/js/index.js"></script>
+    </body>
+<html>

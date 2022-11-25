@@ -1,0 +1,123 @@
+
+*::before
+*::after{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*TODO el cuerpo de la página-diseño de fondo*/
+body{ 
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: #333;       /*Color de fondo*/
+    font-size: 0.9rem;  /*tamñao de letra*/
+    line-height: 1em;   /*interlineado*/
+    margin: 0;          /*eliminamos el margen de toda la página del navegador ya que tiene uno predeterminado*/
+}
+
+
+/*Barra de navegación - diseño solo de margenes y magnitud*/
+.topnav{
+    width: 85%;         /*ancho 85%*/
+    max-width: 100%;   /*maximo tamño de anchura para el contenido de texto*/
+    margin: 0 auto;     /*0 para centrar en 'x' y 'y' es auto*/ 
+}
+
+/*Diseño de color de header el encabezado*/
+header{
+    background: #fb3304;   /*Color del fonodo de la barra de navegación*/
+    color: white;           /*Color del texto de la barra de navegación*/
+    padding: 0;        /*Espacio interior en el encabezado con los margenes*/
+}
+
+/*Diseño de los elementos con a(todos los elementos que se agregaron) */
+.header li a{
+    color: white;           /*Color de los hipervinculos dentro de la barra de navegación*/
+    text-decoration: none;     /*LOs hipervinculos sin subrayado*/
+}
+
+/*Barra de navegación (topnav)- diseño del texto dentro de este*/
+.logo-nav-container{
+    display: flex;                  /*Para que la movilidad de el contenido sea flexible*/
+    justify-content: space-between; /*Justificado el contenido con espacios entre cada elemento*/
+    align-items: center;            /*alineaciónal centro  de los elementos*/
+
+}
+
+/*Barra de navegación que contenga ul(los hipervinculos sin el logo)*/
+.navbar {
+    margin: 0;          /*margen de cero entre ellos*/
+    padding: 0;         /*espaciado interior de cero entre ellos*/
+    list-style: none;   /*no tenga viñeta*/
+    display: inline-block;  /*Se alinen en linea horizontal*/
+}
+
+
+/*Barra de navegación pero ahora en conjunto ul, li, a(el logo y los hipervinculos)*/
+.navbar a{
+    display: inline-block;          /*Se alinen en linea horizontal*/
+    display: block;                  /*Se alinen en bloques*/
+    padding: 0em 2em;              /*Separacion entre elemento*/
+    transition: all 0.4s linear;    /*GEnera la transición cuando lo seleccionas*/
+    border-radius: 5px;
+    color: white;
+}
+
+.navbar i{
+    padding: 0.2em .5em;              /*Separacion entre elemento*/
+    color: white;
+    font-size: 1.3rem;
+
+}
+
+#iBuscador{
+    color:black;
+}
+
+#carrito :hover{
+    color: black;
+}
+
+
+.list-group{
+    width: 300px;
+    height: 90vh;
+
+
+}
+.list-group a{
+    height: 180px;
+    padding-left: 2.5em;
+    padding-top: 2em;
+    font-size: 1.3em;
+    background-color: rgba(53, 53, 53, 0.952);
+    color:rgb(255, 255, 255);
+    border-radius: 0;
+    align-items: center;
+}
+.list-group a i{
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+#menuSecciones div{
+    margin-bottom: 5px;
+    
+  }
+
+#menuSecciones div img {
+    float: inline-start;
+    width: 200px;
+    height: 200px;
+    
+  }
+  #menuSecciones div label {
+    float: inline-start;
+    font-size: large;
+    font-weight: bolder;
+    display: block;
+  }
+  #menuSecciones div button {
+    margin-bottom: 10px;
+
+  }
