@@ -6,105 +6,324 @@
         <meta name="description" content="Es punto de venta para un negocio de tacos"/> <!--describe el programa para tener una mejor busqueda en internet-->
         <meta name="author" content="Leticia Vargas"/>                                              <!--describe el nombre del autor (puede ser nombre de la empresa)-->
         <!-- app logo navegador-->
-        <link rel="shortcut icon" href="./static/imagenes/logo-tacos.png">
+        <link rel="shortcut icon" href="/static/img/logo-tacos.png">
         <!--Compatile con formatos de tamaño-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />       
         
         <!-- Enlace de Estilos -->
-        <link rel="stylesheet" href="./static/css/style_index.css">                    
-        
-        <!-- enlaza el archivo css de estilos-->
-        <!--link href="css/all.min.css" rel="stylesheet"-->
-
-    
+        <link rel="stylesheet" href="/static/css/estilos.css">  
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         
         <!--FontWesome-->
         <script src="https://kit.fontawesome.com/e8f8d6036e.js" crossorigin="anonymous"></script>
     </head>
-    {{data | json_script:"comidas"}}
+
     <body>
-        <!--MARCO DE MAIN-->
-        <div id="layout-wrapper">
-            <!--CONTENIDO MAIN-->
-             <div class="main-content">
-                <!--HEADER BARRA DE NAVEGACIÓN-->
-                <header>
-                    <!--barra de navegación-->
-                    <div class="topnav logo-nav-container">
-                        <!--LOGO-->  
-                        <div class="logo"> 
-                            <img src="./static/imagenes/logo-tacos.png" width="200" height="90" />
-                        </div>
-                        <!--contenido de barra de navegación principal-->
-                        <nav class="navbar">   <!--navegas en diferetes paginas(pestañas)-->
-                            <!--barra de buscador-->
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2 col-md" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-light" type="submit"><i class="fa-solid fa-magnifying-glass " id="iBuscador"></i></button>
-                            </form>
-                            <!--Carrito de compra--> 
-                            <div  id="carrito">
-                                <a href="./carrito"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
-                            </div>
-                        </nav> 
-                    </div>  
-                </header>
 
-
-                <div class="row contenido">
-                    <div class="col-3">
-                        <div id="list-example" class="list-group">
-                            <!--Favoritos-->
-                            <a class="list-group-item list-group-item-action" href="#Favoritos"><i class="fa-solid fa-star"></i>  Favoritos</a>
-                            <!--Comida-->
-                            <a class="list-group-item list-group-item-action"href="#Comida"><i class="fa-solid fa-utensils"></i>  Comida</a>
-                            <!--Bebidas-->
-                            <a class="list-group-item list-group-item-action" href="#Bebidas" ><i class="fa-solid fa-bottle-water"></i>  Bebidas</a>
-                            <!--Extras-->
-                            <a class="list-group-item list-group-item-action"href="#Extras" ><i class="fa-solid fa-plus"></i>  Extras</a>
-                        </div>
+        <header>
+            <!--barra de navegación-->
+            <div class="topnav logo-nav-container">
+                <!--LOGO-->  
+                <div class="logo"> 
+                    <img src="/static/img/logo-tacos.png" width="200" height="90" />
+                </div>
+                <!--contenido de barra de navegación principal-->
+                <nav class="navbar">   <!--navegas en diferetes paginas(pestañas)-->
+                    <!--barra de buscador-->
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 col-md" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-light" type="submit"><i class="fa-solid fa-magnifying-glass " id="iBuscador"></i></button>
+                    </form>
+                    <!--Carrito de compra--> 
+                    <div  id="carrito">
+                        <a href="./carrito"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
                     </div>
+                </nav> 
+            </div>  
+        </header>
 
-                    
-                    <div class="col-9" id="menuSecciones">
-                        <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                            <!--Sección de favoritos-->
-                            <section id="Favoritos">
-                                <div class="justify-content-evenly container mt-3" id="contenedorFav">  
-                                    <div class="row" id="favoritos-div">
-                                        
-                                    </div>
-                                </div>
-                            </section>
-                            <!--sección Comida-->
-                            <section id="Comida">
-                                <h1 hidden> COMIDA </h1>
-
-                            </section>
-                            <!--sección Bebidas-->
-                            <section id="Bebidas">
-                                <h1 hidden> BEBIDAS</h1>
-                            </section>
-                            <!--Extras-->
-                            <section id="Extras">
-                                <h1 hidden> EXTRAS</h1>
-                            </section>
-                        </div>
+        <body>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#Favoritos"><i class="fa-solid fa-star"></i><br>Favoritos</a></li>
+                    <li><a href="#Comida"><i class="fa-solid fa-utensils"></i><br>Comida</a></li>
+                    <li><a href="#Bebidas"><i class="fa-solid fa-bottle-water"></i><br>Bebidas</a></li>
+                    <li><a href="#Extras"><i class="fa-solid fa-plus"></i><br>Extras</a></li>
+                </ul>
+            </nav>
+            
+            <section id="Favoritos">
+                <h2>Favoritos</h2>
+                <p>Te recomendamos nuestros favoritos</p>
+                <div id="productos" >
+                    <div class="justify-content-evenly container mt-3">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="/static/img/taco bisteck.jpg"> 
+                                <br><label id="producto">Taco Bisteck</label>
+                                <br><label id="precioProducto">$15</label>
+                                <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1" min="1">
+                                <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                            </div>
+                            <div class="col-3">
+                                <img src="/static/img/gettyimages-458464735-612x612.jpg"> 
+                                <br><label id="producto">Coca-Cola</label>
+                                <br><label id="precioProducto">$15</label>
+                                <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                                <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                            </div>
+                            <div class="col-3">
+                                <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                                <br><label id="producto">guacamole</label>
+                                <br><label id="precioProducto">$25</label>
+                                <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                                <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                            </div>
+                            <div class="col-3">
+                                <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                                <br><label id="producto">guacamole</label>
+                                <br><label id="precioProducto">$25</label>
+                                <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                                <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                            </div>
+                            <div class="col-3">
+                                <img src="/static/img/burritos_mexicanos_de_carne_picada_55349_orig.jpg"> 
+                                <br><label id="producto">Burrito</label>
+                                <br><label id="precioProducto">$30</label>
+                                <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                                <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                            </div>
+                            <div class="col-3">
+                                <img src="/static/img/36562.jpg"> 
+                                <br><label id="producto">Horchata</label>
+                                <br><label id="precioProducto">$20</label>
+                                <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                                <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                            </div>
+                            <div class="col-3">
+                                <img src="/static/img/taco bisteck.jpg"> 
+                                <br><label id="producto">Taco Bisteck</label>
+                                <br><label id="precioProducto">$15</label>
+                                <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                                <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                            </div>
+                            <div class="col-3">
+                                <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                                <br><label id="producto">guacamole</label>
+                                <br><label id="precioProducto">$25</label>
+                                <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                                <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                            </div>
+                    </div>
                     </div>
                 </div>
 
-            </div><!--CONTENIDO MAIN-->
-        </div> <!--MARCO MAIN-->
-        <template id="template">
-            <div class="col-4">
-                <img src="./static/imagenes/logo-tacos.png"> 
-                <label class="producto">Taco Bisteck</label>
-                <label class="precioProducto">$15</label>
-                <button type="button" class="btn btn-success">Agregar</button>
-            </div>
-        </template>
-        <script src="./static/js/index.js"></script>
+
+            </section>
+            <section id="Comida">
+                <h2>Comida</h2>
+                <p>¿Quesadilla con queso o sin queso?</p>
+                <div id="productos">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="/static/img/taco bisteck.jpg"> 
+                            <br><label id="producto">Taco Bisteck</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/taco bisteck.jpg"> 
+                            <br><label id="producto">Taco Pastor</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/taco bisteck.jpg"> 
+                            <br><label id="producto">Taco Pastor</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/taco bisteck.jpg"> 
+                            <br><label id="producto">Taco Pastor</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3">
+                            <img src="/static/img/burritos_mexicanos_de_carne_picada_55349_orig.jpg"> 
+                            <br><label id="producto">Burrito</label>
+                            <br><label id="precioProducto">$30</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/taco bisteck.jpg"> 
+                            <br><label id="producto">Taco Pastor</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/taco bisteck.jpg"> 
+                            <br><label id="producto">Taco Bisteck</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad"placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/burritos_mexicanos_de_carne_picada_55349_orig.jpg"> 
+                            <br><label id="producto">Burrito</label>
+                            <br><label id="precioProducto">$30</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="Bebidas">
+                <h2>Bebidas</h2>
+                <p>... y una coca de vidrio ...prodría ser...</p>
+                <div id="productos">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="/static/img/gettyimages-458464735-612x612.jpg"> 
+                            <br><label id="producto">Coca-Cola</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/gettyimages-458464735-612x612.jpg"> 
+                            <br><label id="producto">Coca-Cola</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/gettyimages-458464735-612x612.jpg"> 
+                            <br><label id="producto">Coca-Cola</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/36562.jpg"> 
+                            <br><label id="producto">Horchata</label>
+                            <br><label id="precioProducto">$20</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3">
+                            <img src="/static/img/gettyimages-458464735-612x612.jpg"> 
+                            <br><label id="producto">Coca-Cola</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/36562.jpg"> 
+                            <br><label id="producto">Horchata</label>
+                            <br><label id="precioProducto">$20</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/gettyimages-458464735-612x612.jpg"> 
+                            <br><label id="producto">Coca-Cola</label>
+                            <br><label id="precioProducto">$15</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/36562.jpg"> 
+                            <br><label id="producto">Horchata</label>
+                            <br><label id="precioProducto">$20</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                    </div>
+            </section>
+            <section id="Extras">
+                <h2>Extras</h2>
+                <p>por ultimo elije tus salsas, y ¡LISTO!</p>
+                <div id="productos">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                            <br><label id="producto">guacamole</label>
+                            <br><label id="precioProducto">$25</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                            <br><label id="producto">guacamole</label>
+                            <br><label id="precioProducto">$25</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                            <br><label id="producto">guacamole</label>
+                            <br><label id="precioProducto">$25</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                            <br><label id="producto">guacamole</label>
+                            <br><label id="precioProducto">$25</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3">
+                            <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                            <br><label id="producto">guacamole</label>
+                            <br><label id="precioProducto">$25</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                            <br><label id="producto">guacamole</label>
+                            <br><label id="precioProducto">$25</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                            <br><label id="producto">guacamole</label>
+                            <br><label id="precioProducto">$25</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                        <div class="col-3">
+                            <img src="/static/img/Guacamole-con-totopos.jpg"> 
+                            <br><label id="producto">guacamole</label>
+                            <br><label id="precioProducto">$25</label>
+                            <br><div id="agregarCarrito"><input class="form-control" type="number" id="inputCantidad" placeholder="1">
+                            <button type="button" class="btn btn-success"><i class="fa-solid fa-cart-plus"></i>  Agregar</button></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </body>
+
     </body>
+    
+    <script src="./static/js/index.js"></script>
 <html>
+
+        
+   

@@ -12,7 +12,8 @@
   <header>
     <div class="topnav logo-nav-container row">
         <div class="logo col-2"> 
-            <img src="./static/imagenes/logo-tacos.png" width="200" height="90" />
+            <a href="./"><img src="./static/img/logo-tacos.png" width="200" height="90" /></a>
+            
         </div>
         <div class="Carrito col-10">
           <h1 style="text-align: center;">Carrito de compras</h1>
@@ -36,14 +37,12 @@
             <div>
               <h5>Cantidad</h5>
             </div>
-            <div class="btn-group">
-              <button type="button" class="left"><i class="fa-solid fa-minus"></i></button>
-              <input type="text" name="" id="">
-              <button type="button" class="right"><i class="fa-solid fa-plus"></i></button>
+            <div class="cantidad">
+              <input class="form-control" type="number" id="inputCantidad" placeholder="1" min="1">
             </div>
           </div>
           <div class="col col-lg-2 align-self-center">
-            <h3>$20.00</h3>
+            <h3 style="text-align:end;">$20.00</h3>
           </div>
         </div>
       </div>
@@ -60,14 +59,12 @@
             <div>
               <h5>Cantidad</h5>
             </div>
-            <div class="btn-group">
-              <button type="button" class="left"><i class="fa-solid fa-minus"></i></button>
-              <input type="text" name="" id="" value="1">
-              <button type="button" class="right"><i class="fa-solid fa-plus"></i></button>
+            <div class="cantidad">
+              <input class="form-control" type="number" id="inputCantidad" placeholder="1" min="1">
             </div>
           </div>
           <div class="col col-lg-2 align-self-center">
-            <h3>$20.00</h3>
+            <h3 style="text-align:end;">$20.00</h3>
           </div>
         </div>
       </div>
@@ -75,7 +72,7 @@
     </div>
     <div class="left-menu col-3">
       <div class="total">
-        <h2>Subtotal: $20.00</h2>
+        <h2>Total: $20.00</h2>
         <button type="button" class="btn btn-warning">Proceder al pago</button>
       </div>
     </div>
