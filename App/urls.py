@@ -4,5 +4,7 @@ from App import views
 urlpatterns = [
     path('',views.home),
     path('carrito', views.carrito),
-    path('pagos', views.pagos),
+    path('carrito-add', views.carrito_add),
+    path('carrito_del/<int:id>', views.carrito_del),
+    path('pago', views.pago),
 ]

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./static/css/style_carrito.css">
 </head>
+
 <body>
   <header>
     <div class="topnav logo-nav-container row">
@@ -20,65 +21,49 @@
         </div>
     </div>  
   </header>
+  
   <div class="row">
     <div class="col col-9 precio">
       <h6>Precio</h6>
     </div>
+    
     <div class="producto col-9">
+      {% for i in data %}
       <div class="container"><!-- tarjetas -->
         <div class="row">
           <div class="col-2" style="padding-left: 0;">
-              <img class="taquito" src="static/img/logo-tacos.png">
+              <img class="taquito" src="static/img/{{i.car_alim.alim_nombre}}.jpg">
           </div>
           <div class="col-5">
-            <h1>Nombre</h1>
+            <h1>{{i.car_alim.alim_nombre}}</h1>
           </div>
           <div class="col align-self-center">
             <div>
               <h5>Cantidad</h5>
             </div>
             <div class="cantidad">
-              <input class="form-control" type="number" id="inputCantidad" placeholder="1" min="1">
+              <input class="form-control" type="number" id="inputCantidad" placeholder="1" min="1" {% if i.car_alim.alim_categoria == "Extra" %} max="10" {% endif %} value="{{i.car_alim_cantidad}}" onchange="" >
             </div>
           </div>
           <div class="col col-lg-2 align-self-center">
-            <h3 style="text-align:end;">$20.00</h3>
+            <h3 class="precio" style="text-align:end;">${{i.car_alim.alim_precio}}</h3>
+            <a class="del" href="\carrito_del\{{i.car_id}}"><i class="fa-solid fa-xmark"></i></a>
           </div>
         </div>
       </div>
-
-      <div class="container"><!-- tarjetas -->
-        <div class="row">
-          <div class="col-2" style="padding-left: 0;">
-              <img class="taquito" src="static/img/logo-tacos.png">
-          </div>
-          <div class="col-5">
-            <h1>Nombre</h1>
-          </div>
-          <div class="col align-self-center">
-            <div>
-              <h5>Cantidad</h5>
-            </div>
-            <div class="cantidad">
-              <input class="form-control" type="number" id="inputCantidad" placeholder="1" min="1">
-            </div>
-          </div>
-          <div class="col col-lg-2 align-self-center">
-            <h3 style="text-align:end;">$20.00</h3>
-          </div>
-        </div>
-      </div>
-
+    {% endfor %}
     </div>
     <div class="left-menu col-3">
       <div class="total">
-        <h2>Total: $20.00</h2>
-        <button type="button" class="btn btn-warning">Proceder al pago</button>
+        <h2>Total: ${{total}}</h2>
+        <form action="/pago" method="post">{% csrf_token %}
+          <button type="submit" class="btn btn-warning">Proceder al pago</button>
+        </form>
       </div>
     </div>
-  </div>
-
 </body>
+<script src="./static/js/carrito.js"></script>
+
 
 <script src="https://kit.fontawesome.com/ce1ae3c06d.js" crossorigin="anonymous"></script>
 </html>

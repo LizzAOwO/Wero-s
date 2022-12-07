@@ -1,9 +1,12 @@
 
-*::before
-*::after{
+*{
     margin:0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 /*TODO el cuerpo de la página-diseño de fondo*/
@@ -16,112 +19,178 @@ body{
 }
 
 
-/*Barra de navegación - diseño solo de margenes y magnitud*/
-.topnav{
-    width: 85%;         /*ancho 85%*/
+
+.topnav {
+    width: 100%;         /*ancho 85%*/
     max-width: 100%;   /*maximo tamño de anchura para el contenido de texto*/
+    height: 12%;
     margin: 0 auto;     /*0 para centrar en 'x' y 'y' es auto*/ 
-}
-
-/*Diseño de color de header el encabezado*/
-header{
-    background: #fb3304;   /*Color del fonodo de la barra de navegación*/
-    color: white;           /*Color del texto de la barra de navegación*/
-    padding: 0;        /*Espacio interior en el encabezado con los margenes*/
-}
-
-/*Diseño de los elementos con a(todos los elementos que se agregaron) */
-.header li a{
-    color: white;           /*Color de los hipervinculos dentro de la barra de navegación*/
-    text-decoration: none;     /*LOs hipervinculos sin subrayado*/
-}
-
-/*Barra de navegación (topnav)- diseño del texto dentro de este*/
-.logo-nav-container{
     display: flex;                  /*Para que la movilidad de el contenido sea flexible*/
     justify-content: space-between; /*Justificado el contenido con espacios entre cada elemento*/
     align-items: center;            /*alineaciónal centro  de los elementos*/
-
+    
+    background: #fb3304;
+    color:#fff;
+    padding: 0;
+    /*
+    position: fixed;
+    z-index: 1;
+    */
 }
 
-/*Barra de navegación que contenga ul(los hipervinculos sin el logo)*/
-.navbar {
-    margin: 0;          /*margen de cero entre ellos*/
-    padding: 0;         /*espaciado interior de cero entre ellos*/
-    list-style: none;   /*no tenga viñeta*/
-    display: inline-block;  /*Se alinen en linea horizontal*/
+.topnav li a{
+    color: white;           /*Color de los hipervinculos dentro de la barra de navegación*/
+    text-decoration: none;     /*LOs hipervinculos sin subrayado*/
+   
 }
-
 
 /*Barra de navegación pero ahora en conjunto ul, li, a(el logo y los hipervinculos)*/
 .navbar a{
     display: inline-block;          /*Se alinen en linea horizontal*/
-    display: block;                  /*Se alinen en bloques*/
-    padding: 0em 2em;              /*Separacion entre elemento*/
+    padding: 0em 5em;              /*Separacion entre elemento*/
     transition: all 0.4s linear;    /*GEnera la transición cuando lo seleccionas*/
     border-radius: 5px;
     color: white;
+    text-decoration: none;
+    font-size: large;
 }
 
-.navbar i{
+.navbar a i{
     padding: 0.2em .5em;              /*Separacion entre elemento*/
     color: white;
     font-size: 1.3rem;
 
 }
 
-#iBuscador{
-    color:black;
-}
-
-#carrito :hover{
-    color: black;
-}
-
-
-.list-group{
-    width: 300px;
-    height: 90vh;
-
+.navbar a i :hover{
+    color:#333;
 
 }
-.list-group a{
-    height: 180px;
-    padding-left: 2.5em;
-    padding-top: 2em;
-    font-size: 1.3em;
-    background-color: rgba(53, 53, 53, 0.952);
-    color:rgb(255, 255, 255);
-    border-radius: 0;
-    align-items: center;
-}
-.list-group a i{
-    margin-right: 15px;
-    font-size: 1.2em;
-}
 
-#menuSecciones div{
-    margin-bottom: 5px;
+/*-----------------------------------------------------------*/
+
+
+#navMenu{	
+
+	position: fixed;
+	top: 12%;
+}
+nav ul{
+	list-style: none;
+	justify-content: center;
+    height: 83vh;
+    width: 30vh;
+    padding: 0;
     
-  }
 
-#menuSecciones div img {
-    float: inline-start;
-    width: 200px;
-    height: 200px;
-    
-  }
-  #menuSecciones div label {
-    float: inline-start;
-    font-size: large;
-    font-weight: bolder;
-    display: block;
-  }
-  #menuSecciones div button {
-    margin-bottom: 10px;
+}
 
-  }
-
-  .contenido {
+nav ul li a{    
+    background: #333;
+    text-align: center;
+	display: inline-block;
     width: 100%;
-  }
+    height: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+	border: 4px solid #fff;
+    border-radius: 10px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 27px;
+}
+
+nav ul li a i{
+    text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-size: 45px;
+    margin-top: 30px;
+}
+
+
+ nav ul li :hover{
+    background-color: #fff;
+    color: #fb3304;
+    font-weight: bold;
+}
+
+
+
+/*-----------------------------------------------------------*/
+section{
+    margin-left: 16%;
+	height: 100vh;
+	justify-content:center;
+	text-align: center;
+	color: #fff;
+}
+section h2{
+    padding-top: 20px;
+	font-size: 1.8em;
+    font-weight: bold;
+    color:#e05738;
+    margin-bottom: 0;
+
+}
+section p{
+	font-size: .8em;
+    color: #fc947c;
+    font-weight: bold;
+}
+
+section #productos{
+    display:inline-table;
+    margin: 30px 20%;
+}
+
+section #productos img{
+    position: relative;
+    width: 220px;  
+    height: 150px;
+}
+
+section #productos #producto{
+    margin-top: 5px;
+    color:rgb(0, 0, 0);
+}
+
+section #productos #precioProducto{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+section #productos div input{
+    width: 100px;
+    margin-right: 5px;
+}
+
+
+section #productos #agregarCarrito{
+    display: inline-flex;
+    justify-content: center;
+    height: 48px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#Favoritos{
+    height: auto;
+}
+
+#Comida{
+    height: auto;
+}
+
+#Bebidas{
+    height: auto;
+}
+
+#Extras{
+    height: auto;
+}
+
+#Favoritos, #Comida, #Bebidas, #Extras{
+    margin-bottom: 25vh;
+}

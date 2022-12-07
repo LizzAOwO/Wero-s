@@ -13,7 +13,15 @@ class Alimento(models.Model):
     class Meta:
         managed = False
         db_table = 'alimento'
-
+class Carrito(models.Model):
+    car_id = models.AutoField(primary_key=True)
+    car_alim = models.ForeignKey(Alimento, models.DO_NOTHING)
+    car_alim_cantidad = models.IntegerField()
+    class Meta:
+        managed = False
+        db_table = 'carrito'
+    
+    
 
 class Orden(models.Model):
     ord_id = models.AutoField(primary_key=True)
