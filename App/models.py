@@ -25,7 +25,7 @@ class Carrito(models.Model):
 
 class Orden(models.Model):
     ord_id = models.AutoField(primary_key=True)
-    ord_num_alimentos = models.IntegerField()
+    ord_info = models.CharField(max_length=100, blank=True, null = True)
     ord_fecha = models.DateField(blank=True, null=True)
     ord_estatus = models.CharField(max_length=14, blank=True, null=True)
 
@@ -38,7 +38,7 @@ class OrdenAlimento(models.Model):
     ord_alim_id = models.AutoField(primary_key=True)
     ord_alim_alim = models.ForeignKey(Alimento, models.DO_NOTHING)
     ord_alim_ord = models.ForeignKey(Orden, models.DO_NOTHING)
-
+    ord_alim_cantidad = models.IntegerField(null = False)
     class Meta:
         managed = False
         db_table = 'orden_alimento'

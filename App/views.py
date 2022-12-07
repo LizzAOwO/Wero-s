@@ -4,6 +4,7 @@ import json
 from django.db.models import Subquery
 from django.core import serializers
 from App.models import Alimento, Carrito, Orden, OrdenAlimento
+import datetime
 
 # Create your views here.
 def home(request):
@@ -34,4 +35,23 @@ def carrito_del(request, id):
     return redirect("/carrito")
 
 def pago(request):
-    return render(request,"Pagos.html")
+    data =  Carrito.objects.prefetch_related('car_alim')
+    total = 0
+    for i in data:
+        total += i.car_alim_cantidad * i.car_alim.alim_precio
+    data =  Carrito.objects.prefetch_related('car_alim')
+
+    return render(request,"pagos.html",{"data":data, "total": total})
+
+def pago_aceptar(request):
+    data = request.POST
+    car = Carrito.objects.prefetch_related('car_alim')
+    ord = Orden.objects.create(ord_info = data['nombre']+'\n'+data['telefono']+'\n'+data['direccion']+'\n'+data['cp']+'\n',
+                        ord_fecha = datetime.datetime.now().date(),
+                        ord_estatus = "En preparacion")
+    for c in car:
+        OrdenAlimento.objects.create(ord_alim_alim = Alimento(alim_id=c.car_alim.alim_id),
+                                     ord_alim_ord = Orden(ord_id = ord.ord_id), 
+                                     ord_alim_cantidad = c.car_alim_cantidad)
+        c.delete()
+    return redirect("/")

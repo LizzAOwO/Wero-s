@@ -33,11 +33,16 @@ const pintarComidas = () => {
         template.querySelectorAll('label')[0].textContent = comida.fields.alim_nombre
         template.querySelectorAll('label')[1].textContent = "$"+comida.fields.alim_precio
         template.querySelectorAll('button')[0].value = comida.pk
+        
+        if(comida.fields.alim_categoria == "Extra"){
+            template.querySelectorAll('input')[1].max = 10
+        }  
         const clone = template.cloneNode(true)
-        fav.forEach( favorito => {
+        fav.forEach( favorito => {  
             if(favorito == comida.fields.alim_nombre){
                 const clone = template.cloneNode(true)
                 fragment_favoritos.appendChild(clone)
+                
             }
         })
         if(comida.fields.alim_categoria == "Comida"){

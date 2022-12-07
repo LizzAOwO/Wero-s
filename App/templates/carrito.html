@@ -23,10 +23,15 @@
   </header>
   
   <div class="row">
+    {% if data %}
     <div class="col col-9 precio">
       <h6>Precio</h6>
     </div>
-    
+    {% else %}
+    <div class="col col-9 vacio">
+      <h2>El Carrito esta vacio</h2>
+    </div>
+    {% endif %}
     <div class="producto col-9">
       {% for i in data %}
       <div class="container"><!-- tarjetas -->
@@ -57,7 +62,7 @@
       <div class="total">
         <h2>Total: ${{total}}</h2>
         <form action="/pago" method="post">{% csrf_token %}
-          <button type="submit" class="btn btn-warning">Proceder al pago</button>
+          <button type="submit" class="btn btn-warning" {% if data %} enabled {% else %} disabled {% endif %}>Proceder al pago</button>
         </form>
       </div>
     </div>

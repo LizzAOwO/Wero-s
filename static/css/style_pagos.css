@@ -3,6 +3,10 @@ body{
     padding: 0;
     
 }
+
+.general{
+    margin: 0% 5% 10% 5%;
+}
 .datos{
     text-align: center;
     margin-left: 15px;
@@ -11,6 +15,7 @@ body{
 input{
     width: 25%;
 }
+
 
 .metodo{
     text-align: center;
@@ -33,4 +38,40 @@ input{
         width: 150px;
         height: 110px;
       
+}
+.precio h6{
+    margin-right: 11%
+}
+
+.cuenta{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    border-top: 3px solid rgb(200, 200, 200);
+    text-align: right;
+}
+.cuenta h2{
+    margin-right: 3%;
+}
+
+.cancelar{
+    margin-top: 2%;
+    width: 25%;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.cancelar .a{
+    width: 100%;
+    padding-left: -10%;
+}
+
+.cancelar a h5{
+    width: 100%;
+    padding-top: 5px;
+    color:white;
+}
+
+.a:hover{
+    text-decoration: none!important;
 }

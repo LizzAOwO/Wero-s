@@ -49,6 +49,17 @@ header{
     padding-right: 12%;
 }
 
+.vacio{
+    margin-top: 1%;
+    margin-bottom: -5px;
+    text-align: right;
+    padding-right: 12%;  
+}
+
+.vacio h2{
+    margin-right: 115px;
+}
+
 .left-menu{
     margin-top: -2%;
     margin-left: -2%;
