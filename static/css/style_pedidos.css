@@ -1,0 +1,46 @@
+
+.info h5, .info h6{
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.info-icon{
+    border: none;
+    color: #333;
+}
+
+.info-icon:hover{
+    color: #fb3304;
+}
+
+.container{
+    border: none!important;
+}
+
+.tarjeta{
+    margin-top: 5px;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-top: #333 solid 3px;
+}
+
+.modal-close{
+    color: #333;
+}
+
+.modal-close:hover{
+    color: #fb3304;
+}
+
+.modal-header{
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.modal-header h5{
+    margin: 2px;
+}
+
+.modal-body{
+    margin-left: 2%;
+}

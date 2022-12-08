@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pedidos </title> 
+    <meta name="description" content="Es punto de venta para un negocio de tacos"/>
+    <link rel="shortcut icon" href="/static/img/logo-tacos.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/css/style_pedidos.css">
+    <link rel="stylesheet" href="./static/css/style_carrito.css">
+    <script src="https://kit.fontawesome.com/e8f8d6036e.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <div class="topnav logo-nav-container row">
+            <div class="logo col-2"> 
+                <a href="./"><img src="./static/img/logo-tacos.png" width="200" height="90" /></a>
+                
+            </div>
+            <div class="Carrito col-10">
+              <h1 style="text-align: center;">Pedidos</h1>
+            </div>
+        </div>  
+      </header>
+      <div class="container" style="margin-top: 10px;">
+        {% for p in ord %}
+        <div class="row tarjeta">
+            <div class="col-auto">
+                <img class="taquito" src="./static/img/logo-tacos.png" alt="">
+            </div>
+            <div class="col-4 info align-self-center">
+                <h5>{{p.ord_nombre}}</h5>
+                <h6>{{p.ord_tel}}</h6>
+                <h6>{{p.ord_dir}}</h6>
+                <h6>{{p.ord_cp}}</h6>
+            </div>
+            <div class="col-2 align-self-center">
+                <h5>{{p.ord_fecha}}</h5>
+            </div>
+            <div class="col-2 align-self-center">
+                <h2>${{p.ord_total}}</h2>
+            </div>
+            <div class="col align-self-center">
+                <div class="text-center">
+                    <button class="info-icon btn btn-link"  data-bs-toggle="modal" data-bs-target="#modal-{{p.ord_id}}" style="font-size: 25px;"><i class="fa-solid fa-circle-info"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-{{p.ord_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="align-self-center">Orden</h5>
+                        <button type="button" class="btn btn-close modal-close" data-bs-dismiss="modal" aria-label="Close" style="font-size: 20px;"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row justify-content-end">
+                            <div class="col-2">
+                                <h6>Cantidad</h6>
+                            </div>
+                            <div class="col-3">
+                                <h6>Precio</h6>
+                            </div>
+                        </div>
+                        {% for a in alim %}
+                            {% if a.ord_alim_ord == p %}
+                            <div class="row tarjeta">
+                                <div class="col-auto">
+                                    <img class="taquito" src="./static/img/{{a.ord_alim_alim.alim_nombre}}.jpg" alt="">
+                                </div>
+                                <div class="col-5">
+                                    <h1>{{a.ord_alim_alim.alim_nombre}}</h1>
+                                </div>
+                                <div class="col-2 align-self-center">
+                                    <h2>{{a.ord_alim_cantidad}}</h2>
+                                </div>
+                                <div class="col-auto align-self-center">
+                                    <h2>${{a.ord_alim_alim.alim_precio}}</h2>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

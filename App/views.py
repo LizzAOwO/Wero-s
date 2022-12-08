@@ -46,12 +46,21 @@ def pago(request):
 def pago_aceptar(request):
     data = request.POST
     car = Carrito.objects.prefetch_related('car_alim')
-    ord = Orden.objects.create(ord_info = data['nombre']+'\n'+data['telefono']+'\n'+data['direccion']+'\n'+data['cp']+'\n',
-                        ord_fecha = datetime.datetime.now().date(),
-                        ord_estatus = "En preparacion")
+    ord = Orden.objects.create(ord_nombre = data['nombre'],
+                                ord_tel = data['telefono'],
+                                ord_dir = data['direccion'],
+                                ord_cp = data['cp'],
+                                ord_fecha = datetime.datetime.now().date(),
+                                ord_total = data['total'],
+                                ord_estatus = "En preparacion")
     for c in car:
         OrdenAlimento.objects.create(ord_alim_alim = Alimento(alim_id=c.car_alim.alim_id),
                                      ord_alim_ord = Orden(ord_id = ord.ord_id), 
                                      ord_alim_cantidad = c.car_alim_cantidad)
         c.delete()
     return redirect("/")
+
+def pedidos(request):
+    orden = Orden.objects.all().order_by('ord_fecha')
+    alimentos = OrdenAlimento.objects.prefetch_related('ord_alim_ord', 'ord_alim_alim')
+    return render(request, "pedidos.html",{"ord":orden, "alim": alimentos})

@@ -47,7 +47,7 @@ body{
 /*Barra de navegación pero ahora en conjunto ul, li, a(el logo y los hipervinculos)*/
 .navbar a{
     display: inline-block;          /*Se alinen en linea horizontal*/
-    padding: 0em 5em;              /*Separacion entre elemento*/
+    padding: 0em 0em;              /*Separacion entre elemento*/
     transition: all 0.4s linear;    /*GEnera la transición cuando lo seleccionas*/
     border-radius: 5px;
     color: white;
@@ -62,9 +62,23 @@ body{
 
 }
 
-.navbar a i :hover{
-    color:#333;
+.barra {
+    padding: 0; 
+    margin: 0;             /*Separacion entre elemento*/
+    color: white;
+    font-size: 1.3rem;
+    
+}
 
+.barra :hover{
+    text-decoration-color: #333;
+    color: #333;
+}
+
+.carrito{
+    margin-right: 1.3rem!important;
+    border-left: #fff 2px solid;
+    border-radius: 0!important;
 }
 
 /*-----------------------------------------------------------*/

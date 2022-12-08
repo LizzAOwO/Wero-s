@@ -25,10 +25,13 @@ class Carrito(models.Model):
 
 class Orden(models.Model):
     ord_id = models.AutoField(primary_key=True)
-    ord_info = models.CharField(max_length=100, blank=True, null = True)
     ord_fecha = models.DateField(blank=True, null=True)
     ord_estatus = models.CharField(max_length=14, blank=True, null=True)
-
+    ord_nombre = models.CharField(max_length=45, blank=True, null = True)
+    ord_tel = models.CharField(max_length=10, blank=True, null = True)
+    ord_dir = models.CharField(max_length=100, blank=True, null = True)
+    ord_cp = models.CharField(max_length=10, blank=True, null = True)
+    ord_total = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     class Meta:
         managed = False
         db_table = 'orden'
