@@ -31,7 +31,7 @@ class Orden(models.Model):
     ord_tel = models.CharField(max_length=10, blank=True, null = True)
     ord_dir = models.CharField(max_length=100, blank=True, null = True)
     ord_cp = models.CharField(max_length=10, blank=True, null = True)
-    ord_total = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
+    ord_total = models.DecimalField(max_digits=6, decimal_places=2)
     class Meta:
         managed = False
         db_table = 'orden'

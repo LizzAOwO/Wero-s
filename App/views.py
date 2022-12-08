@@ -34,6 +34,11 @@ def carrito_del(request, id):
     Carrito.objects.filter(car_id = id).delete()
     return redirect("/carrito")
 
+def car_update(request):
+    data = request.POST
+    Carrito.objects.filter(car_alim = data['id']).update(car_alim_cantidad = data['cantidad'])
+    return redirect("/carrito")
+
 def pago(request):
     data =  Carrito.objects.prefetch_related('car_alim')
     total = 0

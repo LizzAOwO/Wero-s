@@ -48,7 +48,10 @@
               <h5>Cantidad</h5>
             </div>
             <div class="cantidad">
-              <input class="form-control" type="number" id="inputCantidad" placeholder="1" min="1" {% if i.car_alim.alim_categoria == "Extra" %} max="10" {% endif %} value="{{i.car_alim_cantidad}}" onchange="" >
+              <form class="d-inline-flex" action="/carrito_update" method="post">{% csrf_token %}
+                <input class="form-control col-10" type="number" id="inputCantidad" placeholder="1" min="1" {% if i.car_alim.alim_categoria == "Extra" %} max="10" {% endif %} value="{{i.car_alim_cantidad}}" name="cantidad">
+                <Button type="submit" class="btn btn-link update align-self-center" name="id" value="{{i.car_alim.alim_id}}"><i class="fa-solid fa-floppy-disk"></i></Button>
+              </form>
             </div>
           </div>
           <div class="col col-lg-2 align-self-center">
@@ -68,8 +71,6 @@
       </div>
     </div>
 </body>
-<script src="./static/js/carrito.js"></script>
-
 
 <script src="https://kit.fontawesome.com/ce1ae3c06d.js" crossorigin="anonymous"></script>
 </html>
